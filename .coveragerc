@@ -1,0 +1,4 @@
+[paths]
+venvs=
+    src/smarttest/
+    /usr/home/jstolarski/.virtualenvs/*/lib/python*/site-packages/smarttest/

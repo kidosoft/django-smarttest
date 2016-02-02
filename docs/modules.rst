@@ -1,0 +1,2 @@
+.. automodule:: smarttest.decorators
+   :members:
