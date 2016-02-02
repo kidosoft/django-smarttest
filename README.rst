@@ -39,7 +39,7 @@ or current development version:
 
 .. code-block:: console
 
-   pip install hg+https:://bitbucket.org/kidosoft/django-smarttest
+   pip install git+https://github.com/kidosoft/django-smarttest.git
 
 Configuration
 =============
@@ -177,4 +177,4 @@ Tested with:
 Documentation
 =============
 
-http://kidosoft.pl/docs/django-smarttest/
+http://django-smarttest.readthedocs.org/
