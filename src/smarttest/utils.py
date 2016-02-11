@@ -11,6 +11,11 @@ def _find_all_files_in_tree(directory, ignore_dirs=None):
         ignore_dirs = DEFAULT_IGNORE_DIRS
     for dir_name, dirnames, filenames in os.walk(directory):
         # filter out ignored directories
+        for ignored_dir in ignore_dirs:
+            try:
+                dirnames.remove(ignored_dir)
+            except ValueError:
+                pass
         if os.path.basename(dir_name) not in ignore_dirs:
             for file_name in filenames:
                 yield os.path.join(dir_name, file_name)
@@ -25,7 +30,7 @@ def load_all_modules(directory, ignore_dirs=None):
     paths = (os.path.splitext(path) for path in paths)
     paths = (path for path, ext in paths if ext == '.py')
     # create module paths
-    modules = (path.replace('/', '.') for path in paths)
+    modules = (path.replace('./', '').replace('/', '.') for path in paths)
     # import modules
     for module_path in modules:
         try:
